@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table
+@Component
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,5 +24,6 @@ public class Ticket {
     private Posto seat;
     @ManyToOne
     private Utente user;
-
+    @ManyToOne
+    private Spettacolo spettacolo;
 }
